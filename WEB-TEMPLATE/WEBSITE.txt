@@ -1,0 +1,7 @@
+Abstract
+The purpose of this project is to predict the chances of covid getting decreased
+with the implementation of lockdown,vaccination and measures in Tamil
+Nadu. And also finding the statistical reasons behind the decrease of the
+COVID spread, so that it will be helpful for the government to follow up the
+measures taken. All these findings will be done with the Tamil Nadu Corona
+Spread Dataset which is taken from the tn.data.gov.in.
