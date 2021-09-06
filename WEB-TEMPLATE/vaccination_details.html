@@ -1,0 +1,62 @@
+
+<!--https://fontawesome.com/v4.7/cheatsheet/-->
+<html>
+<title>COVID 19 OUTBREAK PREDICTION</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  .h6{
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotateZ(-180deg);
+    text-indent: 50px;
+  }
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:8; height:10%;align-items: center;padding-top: 10px; ">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> </button>
+  <span class="w3-bar-item w3-center">
+    COVID 19 OUTBREAK PREDICTION</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4" style="padding-top: 40px;">
+      <img src="https://image.cnbcfm.com/api/v1/image/106824234-1610588757413-gettyimages-1221622538-a_ac_42eps.jpeg?v=1610597551" width="280" height="25%">
+   
+    </div>
+    <div class="w3-col s8 w3-bar">
+     
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h4><b>Menus</b></h4>
+    
+  </div>
+  <div class="w3-bar-block">
+    <a href="" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding "><i class="fa fa-eye "></i>  Overview</a>
+    <a href="{% url 'charts' %}"  class="w3-bar-item w3-button w3-padding " ><i class="fa fa-area-chart fa-fw w3-blue"></i> Statistics </a>
+    <a href="{% url 'prediction' %}" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Prediction</a>
+    <a href="{% url 'vaccination_details' %}" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-sort-amount-desc fa-fw"></i>Before/ After Vaccination</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>  Districtwise</a>
+    <a href="{% url 'statewise' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>  statewise</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  Covid19 News</a>
+  </div>
+</nav>
+
+
+
+
+
+</body>
+</html>

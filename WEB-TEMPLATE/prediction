@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<style>
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90%;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xxlarge w3-black w3-opacity w3-hover-opacity-on" id="myNavbar">
+    <a href="index.html" class=" w3-button">HOME</a>
+    <a href="#" class=" w3-button">PREDICTION</a>
+    <a href="#menu" class=" w3-button">LIVE UPDATES</a>
+     </div>
+</div>
+  
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  
+  <div class="w3-display-middle w3-center">
+    <div id="placeholder"></div>
+    <div id="placeholder" style="width:600px;height:300px"></div>
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+    var xValues = [100,200,300,400,500,600,700,800,900,1000];
+    
+    new Chart("myChart", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{ 
+          data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+          borderColor: "red",
+          fill: false
+        }, { 
+          data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
+          borderColor: "green",
+          fill: false
+        }, { 
+          data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
+          borderColor: "blue",
+          fill: false
+        }]
+      },
+      options: {
+        legend: {display: false}
+      }
+    });
+    </script>
+    
+    
+  </div>
+</header>
+
+<!-- Menu Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="month">
+  <div class="w3-content">
+
+
+  </div>
+</div>
+
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
+  <div class="w3-content">
+   
+    
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>2021 Indhu & bharathi</p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-red";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>

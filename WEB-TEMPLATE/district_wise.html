@@ -1,0 +1,209 @@
+<!--https://fontawesome.com/v4.7/cheatsheet/-->
+<html>
+<title>COVID 19 OUTBREAK PREDICTION</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-family: "Muli", rockwell;font-size: larger;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+    #covid_districts {
+  font-family: "Muli", rockwell;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#covid_districts td, #covid_districts th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#covid_districts tr:nth-child(even){background-color: #cddadada;}
+
+#covid_districts tr:hover {background-color: rgb(205, 210, 212);}
+
+#covid_districts th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #00a0eb;
+  color: white;
+}
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+</style>
+
+<body class="w3-light-grey">
+
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:8; height:10%;align-items: center;padding-top: 10px; ">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
+            onclick="w3_open();"><i class="fa fa-bars"></i> </button>
+        <span class="w3-bar-item w3-center">
+            COVID 19 OUTBREAK PREDICTION</span>
+    </div>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+        <div class="w3-container w3-row">
+            <div class="w3-col s4" style="padding-top: 40px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Tamil_Nadu_districts_map.svg/1649px-Tamil_Nadu_districts_map.svg.png"
+                    width="280" height="45%">
+            </div>
+            <div class="w3-col s8 w3-bar">
+
+            </div>
+        </div>
+        <hr>
+        <div class="w3-container">
+            <h5><b>Menus</b></h5>
+
+        </div>
+        <div class="w3-bar-block" style="font-size: large;">
+            <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+                onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+
+                <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Overview</a>
+                <a href="{% url 'charts' %}" class="w3-bar-item w3-button w3-padding"><i
+                    class="fa fa-area-chart fa-fw"></i> Statistics </a>
+            <a href="{% url 'prediction' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i> 
+                Prediction</a>
+            <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sort-amount-desc fa-fw"></i>Before/
+                After Vaccination</a>
+                <a href="{% url 'district_wise' %}"  class="w3-bar-item w3-button w3-padding w3-blue" ><i class="fa fa-area-chart fa-fw"></i> Districtwise daily Counts </a>
+                <a href="{% url 'statewise' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>  Statewise  daily Counts</a>
+            <a href="{% url 'covid_news'%}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i> Covid19 News</a>
+        </div>
+    </nav>
+
+
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+        title="close side menu" id="myOverlay"></div>
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+        <!-- Header -->
+        <header class="w3-container" style="padding-top:50px">
+            <h5><b><i class="fa fa-dashboard"></i> COVID19 Districtwise Dashboard - Tamilnadu</b></h5>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search District..." title="Type in a name">
+        </header>
+        
+        <div style="overflow-x:auto;">
+            <table id="covid_districts">
+                <tr>
+                    <th>District Name</th>
+                    <th>Active</th>
+                    <th>Confirmed</th>
+                    <th>Death</th>
+                    <th>Cured</th>
+                </tr>
+
+                {% for i1,i2,i3,i4,i5 in col %}
+                </tr>
+                <td>{{i1}}</td> 
+                <td>{{i2}}</td>
+                <td>{{i3}}</td>
+                <td>{{i4}}</td>
+                <td>{{i5}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-16 w3-light-grey">
+        <h4>19mx108 , 19mx218 </h4>
+
+    </footer>
+
+    <!-- End page content -->
+    </div>
+
+    <script>
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
+
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
+
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
+                overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
+            }
+        }
+
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
+    </script>
+    <script>
+        function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("covid_districts");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+        </script>
+
+</body>
+
+</html>

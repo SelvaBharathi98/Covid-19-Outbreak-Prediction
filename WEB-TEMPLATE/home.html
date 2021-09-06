@@ -1,0 +1,244 @@
+
+<!--https://fontawesome.com/v4.7/cheatsheet/-->
+<html>
+<title>COVID 19 OUTBREAK PREDICTION</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Muli", rockwell}
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+    #home_count_table {
+  font-family: "Muli", rockwell;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#home_count_table td, #home_count_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#home_count_table tr:nth-child(even){background-color: #cddadada;}
+
+#home_count_table tr:hover {background-color: rgb(205, 210, 212);}
+
+#home_count_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #00a0eb;
+  color: white;
+}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:8; height:10%;align-items: center;padding-top: 10px; ">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> </button>
+  <span class="w3-bar-item w3-center">
+    COVID 19 OUTBREAK PREDICTION</span>
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4" style="padding-top: 40px;">
+      <img src="https://static.vecteezy.com/system/resources/previews/001/177/083/non_2x/covid-19-virus-cells-on-blue-vector.jpg" width="280" height="35%">
+    </div>
+    <div class="w3-col s8 w3-bar">
+     
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5><b>Menus</b></h5>
+    
+  </div>
+  <div class="w3-bar-block" style="font-size: large;">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="{% url 'charts' %}"  class="w3-bar-item w3-button w3-padding" ><i class="fa fa-area-chart fa-fw"></i> Statistics </a>
+    <a href="{% url 'prediction' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Prediction</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sort-amount-desc fa-fw"></i>Before/ After Vaccination</a>
+    <a href="{% url 'district_wise' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>  Districtwise</a>
+    <a href="{% url 'statewise' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>  statewise</a>
+    <a href="{% url 'covid_news'%}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i> Covid19 News</a>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:50px">
+    <h5><b><i class="fa fa-dashboard"></i> COVID19 Dashboard - Tamilnadu</b></h5>
+  </header>
+
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-green w3-padding-16">
+        <div class="w3-left"><i class="fa fa-thermometer-4 w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{cured}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Cured</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-user-times w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{death}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Deaths</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-user-plus w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{total_cases}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Total Cases Discovered</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-black w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>{{vaccinated}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Todays expected count</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-panel">
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third">
+        <h5>Regions</h5>
+        <img src="https://media.gettyimages.com/vectors/tamil-nadu-map-with-a-coronavirus-cell-in-red-viewfinder-vector-id1213338545?s=2048x2048" width="100%" height="42%">
+      </div>
+      <div class="w3-twothird">
+       
+        <div><b>Feeds</b><h5 style="float: right;">Counts in terms of Crores</h5></div>
+         <table class="w3-table w3-striped w3-white" id="home_count_table">
+          <tr>
+            <td><i class="fa fa-users w3-text-blue w3-large"></i></td>
+            <td>Population in india</td>
+            <td><i><b>140 Cr.</b></i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-orange w3-large"></i></td>
+            <td>People above 18 year </td>
+            <td><i><b>94 Cr.</b>
+            </i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-green w3-large"></i></td>
+            <td>People taken their two dosage of vaccine
+            </td>
+            <td><i><b>{{nop1}} %</b>
+            </i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-red w3-large"></i></td>
+            <td>Remaining people have to take vaccine
+            </td>
+            <td><i><b>{{nop2}} %</b>
+            </i></td>
+          </tr>
+         <tr>
+            <td><i class="fa fa-users w3-text-blue w3-large"></i></td>
+            <td>Population in TamilNadu
+            </td>
+            <td><i><b>7.88 Cr.</b> 
+            </i></td>
+          </tr><tr>
+            <td><i class="fa fa-users w3-text-orange w3-large"></i></td>
+            <td>People above 18 year
+            </td>
+            <td><i><b>5.38 Cr.</b> 
+            </i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-green w3-large"></i></td>
+            <td>People taken their two dosage of vaccine
+            </td>
+            <td><i><b>{{nop3}}%</b>
+            </i></td>
+          </tr>
+          <tr>
+            <td><i class="fa fa-users w3-text-red w3-large"></i></td>
+            <td>Remaining people have to take vaccine
+            </td>
+            <td><i><b>{{nop4}}%</b></i></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <hr>
+  
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <h4>19mx108 , 19mx218 </h4>
+    
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+
+<!--https://fontawesome.com/v4.7/cheatsheet/-->
+<html>
+<title>COVID 19 OUTBREAK PREDICTION</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+html,body,h1,h2,h3,h4,h5 {font-family: "Muli", rockwell}
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+    #home_count_table {
+  font-family: "Muli", rockwell;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#home_count_table td, #home_count_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#home_count_table tr:nth-child(even){background-color: #cddadada;}
+
+#home_count_table tr:hover {background-color: rgb(205, 210, 212);}
+
+#home_count_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #00a0eb;
+  color: white;
+}
+.outer {
+  width: 200px;
+  margin: 0 auto;
+  background-color: yellow;
+}
+
+.inner {
+  margin-left: 50px;
+  background-color: orange;
+}
+</style>
+<body class="w3-light-grey">
+
+<!-- Top container -->
+<div class="w3-bar w3-top w3-black w3-large" style="z-index:8; height:10%;align-items: center;padding-top: 10px; ">
+  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> </button>
+  <span class="w3-bar-item w3-center">
+    COVID 19 OUTBREAK PREDICTION</span>
+   
+</div>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+    <div class="w3-col s4" style="padding-top: 40px;">
+      <img src="https://i1.wp.com/covidnews.eurocities.eu/wp-content/uploads/2020/03/cropped-cropped-COVIDnews-banner_4.png?fit=256%2C256&ssl=1" width="280" height="35%">
+    </div>
+    <div class="w3-col s8 w3-bar">
+     
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+    <h5><b>Menus</b></h5>
+    
+  </div>
+  <div class="w3-bar-block" style="font-size: large;">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="{% url 'charts' %}"  class="w3-bar-item w3-button w3-padding" ><i class="fa fa-area-chart fa-fw"></i> Statistics </a>
+    <a href="{% url 'prediction' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Prediction</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sort-amount-desc fa-fw"></i>Before/ After Vaccination</a>
+    <a href="{% url 'district_wise' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>  Districtwise</a>
+    <a href="{% url 'statewise' %}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bars fa-fw"></i>  statewise</a>
+    <a href="{% url 'covid_news'%}" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i> Covid19 News</a>
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+  <!-- Header -->
+  <header class="w3-container" style="padding-top:50px">
+    <h5><b><i class="fa fa-dashboard"></i> COVID19 Covid News - Tamilnadu</b></h5>
+  </header>
+ <!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1900px;padding-left: 40px;">
+
+    <!-- First Photo Grid-->
+    <div class="w3-row-padding w3-padding-16 w3-center" style="padding: 2%;" >
+      <div class="w3-quarter" style="border-style:double;border-color:black"><br>
+        <img src="https://images.indianexpress.com/2021/05/Chennai-COVID-19-12.jpg"  style="width:100%">
+        <h3 style="font-style: italic ;color:red;">Chennai Hyderabad May 21 Highlights: TN reports 36,184 fresh cases and 467 deaths</h3>
+        <p>Chennai, Hyderabad Coronavirus News May 21 Highlights: Tamil Nadu recorded 36,184 positive cases of COVID-19 on Friday bringing the state tally to 17,70,988. Among these, Chennai reported 5,913 positive cases, bringing the city’s total to 4,68,262. The state recorded 467 deaths on Friday, putting the state toll at 19,598. A total of 339 of them had succumbed due to comorbidities. A total of 24,478 patients were discharged following treatment, taking the total number of recoveries to 14,76,761.
+
+            Also Read |<a href="https://indianexpress.com/article/india/as-positivity-rate-rises-tamil-nadu-considers-lockdown-extension-7323638/">As positivity rate rises </a> , Tamil Nadu considers lockdown extension
+            As of Thursday, the number of active COVID-19 cases in Tamil Nadu is 2,63,390. Till date, 10,33,741 males, 7,01,025 females and 38 transgenders have tested positive for the virus in the state.
+            
+            According to a bulletin released by the Health and Family Welfare Department of Tamil Nadu, 2,57,75,405 samples from the state have been tested till date, with 1,71,094 samples having been sent yesterday. There are 267 COVID-19 testing facilities in the state, out of which 69 are government and 198 are private facilities.</p>
+      </div>
+      
+      <div class="w3-quarter" style="border-style:double;border-color:black" style="padding: 2%;" ><br>
+        <img src="https://images.indianexpress.com/2021/05/tamil-nadu-lockdown.jpg"  style="width:100%">
+        <h3 style="font-style: italic ;color:rgb(131, 124, 124)">As positivity rate rises, Tamil Nadu considers lockdown extension</h3>
+        <p style="text-indent: 0em;">While the positivity rate was seen increasing steadily in the first and second weeks of May, Chengalpattu district, which is south of Chennai and occupies a part of the Greater Chennai City Corporation reported a 31.5 per cent test positivity rate for 7 days from May 12 to 18.</p>
+    <p>WITH A rise in the number of Covid infections and at least 16 districts showing a positivity rate of over 20 per cent, Tamil Nadu is considering extending the lockdown by another week to May 24 and working out a district-level containment plan.
+
+        The positivity rate in two districts — Chengalpattu and Theni — is above 30 per cent. The state reported the highest number of fresh cases in the country on Tuesday even as there was a slight decline in the number of new cases this week. One of the senior ministers handling the Covid crisis on the ground said there are two immediate plans before them – to handle the alarming situation in Coimbatore and a strong possibility to extend the lockdown for one more week after May 24.
+        
+        While the positivity rate was seen increasing steadily in the first and second weeks of May, Chengalpattu district, which is south of Chennai and occupies a part of the Greater Chennai City Corporation reported a 31.5 per cent test positivity rate for 7 days from May 12 to 18. Theni (30.3 per cent), Coimbatore (29.3 per cent), Kanyakumari (27.1 per cent), Thoothukudi (26.7 per cent) were other districts with high positivity rates.</p>  
+    </div>
+      <div class="w3-quarter" style="border-style:double;border-color:black"><br>
+        <img src="https://static.toiimg.com/thumb/msid-85756738,imgsize-146130,width-1000,height-562,resizemode-8/85756738.jpg" style="width:100%">
+        <h3 style="font-style: italic ;color:red">A sea of people converges at Marina beach in Chennai</h3>
+        <h4>Thousands of people gathered at Chennai Marina beach on the first Sunday after public places were opened for general public following Covid lockdown.</h4>
+        <img src="https://static.toiimg.com/thumb/msid-85756738,imgsize-146130,width-1000,height-562,resizemode-8/85756733.jpg" style="width:100%">
+    
+        <p>The state government's order allowing people to visit sea beaches and parks has brought much needed respite from humid weather in the city while posing a serious threat of spreading Covid-19 infection.</p>
+       
+      </div>
+      <div class="w3-quarter" style="border-style:double;border-color:black"><br>
+        <img src="https://images.moneycontrol.com/static-mcnews/2021/04/Covid-India-770x433.jpg" style="width:100%">
+        <h3 style="font-style: italic ;color:red">Coronavirus India News Highlights: PM Modi urges EU leaders to support India, South Africa on COVID vaccines patent waiver</h3>
+        <h4 style="color: gray;">Coronavirus News Highlights: The cumulative number of COVID-19 vaccine doses administered in India has crossed 16.73 crore, according to the Union Health Ministry.</h4>
+        <h4>Coronavirus LIVE Updates | Mucormycosis fungal infections up among COVID-19 survivors
+
+            Cases of mucormycosis, a serious but rare fungal infection, are on the rise among COVID-19 survivors, causing blindness or other serious issues, health officials in Maharashtra and Gujarat said on Saturday.
+            
+            Mathur Savani, chairman of Surat-based Kiran Super Multi-speciality Hospital, said mucormycosis patients are coming to his hospital from many parts of Gujarat.
+            
+            "Fifty mucormycosis patients are being treated and 60 more are awaiting treatment," Savani told PTI.
+            
+            Seven such patients lost their eyesight, he said..</h4>
+        <img src="https://static.toiimg.com/thumb/msid-85756738,imgsize-146130,width-1000,height-562,resizemode-8/85756733.jpg" style="width:100%">
+    
+        <p>Coronavirus LIVE Updates | Maharashtra reports 53,605 new COVID-19 cases, 864 deaths
+
+            Maharashtra''s COVID-19 caseload on Saturday crossed the 50 lakh-mark as it reported 53,605 new cases, a health department official said.
+            The case tally of the state rose to 50,53,336, while with 864 fatalities the death toll reached 75,277, he said.
+            
+            A record 82,266 people were discharged from hospitals during the day, pushing total recoveries to 43,47,592.
+            
+            There are 6,28,213 active patients in the state now.</p>
+       
+      </div>
+    </div>
+    
+      
+      
+    </div>
+  
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-16 w3-light-grey">
+    <h4>19mx108 , 19mx218 </h4>
+    
+  </footer>
+
+  <!-- End page content -->
+</div>
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
